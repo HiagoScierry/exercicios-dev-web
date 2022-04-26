@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script lang="Javascript">
+
+        function aumento(salary, percent){
+            console.log('run func');
+
+            const aumentou =  salary * (1 + (+percent/100));
+            
+            document.writeln(`<p>Salario anterior : ${salary}</p>`);
+            document.writeln(`<p>Salario atual : ${aumentou}</p>`);
+            document.writeln(`<p>Taxa aplicada : ${percent}</p>`);
+        }
+
+        const salario = prompt('Digite o seu salario : ');
+
+        if(280 >= +salario){
+            aumento(+salario, 20);
+        } else if(700 >= +salario){
+            aumento(+salario, 15);
+        } else if(1500 >= +salario){
+            aumento(+salario, 10);
+        } else if(+salario >= 1500){
+            aumento(+salario, 5);
+        }
+
+    </script>
+</body>
+</html>

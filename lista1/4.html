@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button id="criar">criar</button>
+        <button id="escrever">escrever</button>
+        <button id="mudar">mudar</button>
+        <button id="fechar">fechar</button>
+    </div>
+
+
+
+    <script lang="Javascript">
+
+        const criar = document.getElementById('criar');
+        const escrever = document.getElementById('escrever');
+        const mudar = document.getElementById('mudar');
+        const fechar = document.getElementById('fechar');
+
+        let win;
+
+        criar.addEventListener('click', () => {
+            win = window.open('')
+        })
+
+        escrever.addEventListener('click', () => {
+            win.document.write('oioioio')
+        })
+
+        mudar.addEventListener('click', () => {
+           win.document.bgColor = 'Blue'
+           win.document.fgColor = 'White'
+        })
+
+        fechar.addEventListener('click', () => {
+            win.close()
+        })
+
+
+    </script>
+</body>
+</html>

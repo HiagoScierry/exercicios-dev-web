@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+   
+<body>
+
+    <form action="">
+        <input type="text" name="" id="input" minlength="3">
+        <button type="button" onclick="enviar()">
+            Enviar
+        </button>
+    </form>
+
+
+    <script lang="Javascript">
+        
+        function enviar(){
+            const input = document.getElementById('input');
+
+            const inputSplitted = input.value.split('/');
+
+            if(inputSplitted.length < 3){
+                input.style.backgroundColor = "yellow";
+                input.focus();
+                return;
+            }
+
+            const actualDate = new Date();
+            const inputDate = new Date(+inputSplitted[2], +inputSplitted[1] - 1, +inputSplitted[0]);
+
+            if(inputDate < actualDate) {
+                document.write('A data ja aconteceu')
+            } else {
+                const diff = inputDate - actualDate
+                console.log();
+            }
+
+
+
+        }
+
+    </script>
+
+</body>
+</html>
