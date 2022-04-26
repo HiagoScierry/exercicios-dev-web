@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+
+        table , tr, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+    
+
+    <table id="tabela">
+        <tr>
+            <td>operação</td>
+            <td>resultado</td>
+        </tr>
+    </table>
+
+
+    <script lang="Javascript">
+
+        let result = [];
+        let operacoes = ["+", "*", "/", "%"];
+    
+        let x = prompt("Digite o primeiro valor");
+        let y = prompt("Digite o segundo valor");
+        
+        result.push(+x + +y);
+        result.push(+x * +y);
+        result.push(+x / +y);
+        result.push(+x % +y);
+        
+        let tabela =  document.getElementById("tabela");
+        
+        for (let i = 0; i < operacoes.length; i++) {
+            const operador = operacoes[i];
+
+            let tr = document.createElement('tr');
+            let td1 = document.createElement('td');
+            const operacao = ` ${x} ${operador} ${y}`;
+            td1.textContent = operacao;
+
+            let td2 = document.createElement('td');
+            td2.textContent = result[i];
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+
+            tabela.appendChild(tr);
+        }
+    
+
+        
+    
+    </script>
+    
+
+</body>
+</html>

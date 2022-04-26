@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script lang="Javascript">
+
+        const date = new Date();
+
+        const hr = date.getHours()
+
+        let horario = "";
+
+        if( hr > 6 ) {
+            horario = "madrugada";
+        } 
+
+        if( 6 >= hr >= 12 ) {
+            horario = "manha";
+        } 
+
+        if( 12 > hr >= 18 ) {
+            horario = "tarde";
+        } 
+
+        if( 18 > hr ) {
+            horario = "noite";
+        } 
+
+        const style = {
+            "manha" : () => {
+                //mantem o padrão
+            },
+            "tarde" : () => {
+                document.bgColor = "yellow";
+            },
+            "noite" : () => {
+                document.bgColor = "black";
+                document.fgColor = "white";
+
+            },
+            "madrugada" : () => {
+                document.bgColor = "blue";
+                document.fgColor = "white";
+            },
+        }
+
+        style[horario]();
+
+        document.write(date.toLocaleString());
+
+
+
+
+    </script>
+</body>
+</html>
