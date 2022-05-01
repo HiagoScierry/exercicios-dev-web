@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="checkbox" name="checkbox" >A</input>        
+        <input type="checkbox" name="checkbox" >B</input>
+        <input type="checkbox" name="checkbox" >C</input>        
+        <input type="checkbox" name="checkbox" >D</input>
+        <input type="button" value="Verificar" onclick="verify()">
+    </form>
+
+    <script lang="Javascript">
+
+        function verify(){
+            const checkbox = [...document.getElementsByName('checkbox')];
+        
+            
+
+            if(checkbox.findIndex(el => el.checked === true) !== -1){
+                alert("Sucesso")
+            } else {
+                alert("Falha")
+            }
+            
+        }
+
+    </script>
+</body>
+</html>

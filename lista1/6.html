@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-   
+
 <body>
 
     <form action="">
@@ -18,13 +19,14 @@
 
 
     <script lang="Javascript">
-        
-        function enviar(){
+
+
+        function enviar() {
             const input = document.getElementById('input');
 
             const inputSplitted = input.value.split('/');
 
-            if(inputSplitted.length < 3){
+            if (inputSplitted.length < 3) {
                 input.style.backgroundColor = "yellow";
                 input.focus();
                 return;
@@ -33,18 +35,26 @@
             const actualDate = new Date();
             const inputDate = new Date(+inputSplitted[2], +inputSplitted[1] - 1, +inputSplitted[0]);
 
-            if(inputDate < actualDate) {
+            if (inputDate < actualDate) {
                 document.write('A data ja aconteceu')
             } else {
-                const diff = inputDate - actualDate
-                console.log();
+                
+                const ONE_DAY = 3600 * 24 * 1000;
+                const diff = inputDate - actualDate;
+
+                const diffInDays = diff / ONE_DAY;
+                const diffInWeeks = diff / ONE_DAY * 7;
+                const diffInYears = diff / ONE_DAY * 365;
+
+                document.writeln(`<p>faltam ${diffInDays} dias</p>`);
+                document.writeln(`<p>faltam ${diffInWeeks} semanas</p>`);
+                document.writeln(`<p>faltam ${diffInYears} anos</p>`);
+
             }
-
-
-
         }
 
     </script>
 
 </body>
+
 </html>

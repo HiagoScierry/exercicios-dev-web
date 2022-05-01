@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <form>
+        <div>
+            <input type="text" name="" placeholder="titulo" id="titulo">
+            <input type="text" name="" placeholder="cor" id="tituloCor">
+        </div>
+        <div>
+            <input type="text" name="" placeholder="subtitulo1" id="subtitulo1">
+            <input type="text" name="" placeholder="cor" id="subtitulo1Cor">
+        </div>
+        <div>
+            <input type="text" name="" placeholder="subtitulo2" id="subtitulo2">
+            <input type="text" name="" placeholder="cor" id="subtitulo2Cor">
+        </div>
+
+        <input type="button" value="preview" onclick="preview()">
+        <input type="button" value="criar" onclick="generate()">
+    </form>
+
+    <div id="preview">
+    </div>
+
+    <script lang="Javascript">
+        function preview(sendPreview = false){
+            const titulo = document.getElementById('titulo');
+            const tituloCor = document.getElementById('tituloCor');
+            const subtitulo1 = document.getElementById('subtitulo1');
+            const subtitulo1Cor = document.getElementById('subtitulo1Cor');
+            const subtitulo2 = document.getElementById('subtitulo2');
+            const subtitulo2Cor = document.getElementById('subtitulo2Cor');
+
+            const preview = document.getElementById('preview');
+        
+
+            const setTitulo = document.createElement('h1');
+            const setSubtitulo1 = document.createElement('h2');
+            const setSubtitulo2 = document.createElement('h2');
+            
+            setTitulo.textContent = titulo.value;
+            setTitulo.style.color = tituloCor.value;
+
+            setSubtitulo1.textContent = subtitulo1.value;
+            setSubtitulo1.style.color = subtitulo1Cor.value;
+
+
+            setSubtitulo2.textContent = subtitulo2.value;
+            setSubtitulo2.style.color = subtitulo2Cor.value;
+            
+            if(sendPreview){
+                return {
+                    setTitulo,
+                    setSubtitulo1,
+                    setSubtitulo2
+                }
+            }
+
+            preview.appendChild(setTitulo);
+            preview.appendChild(setSubtitulo1);
+            preview.appendChild(setSubtitulo2);
+
+        }
+
+        function generate(){
+            
+            const previewElement = document.getElementById('preview');
+        
+            const previewData = preview(true);
+            console.log(previewData);
+
+            const txtArea = document.createElement('textarea');
+
+            txtArea.style.width = '400px';
+            txtArea.style.height = '400px';
+            
+            txtArea.innerHTML = '<style    h1{ color: ' + previewData.setTitulo.style.color + '    }    h2{ color: ' + previewData.setSubtitulo1.style.color + ';    }    h3{ color: ' + previewData.setSubtitulo2.style.color + ' }   </style><h1> ' + previewData.setTitulo.textContent + '</h1<h2> ' + previewData.setSubtitulo1.textContent + '</h2<h3> ' + previewData.setSubtitulo2.textContent + '</h3>';
+            
+            previewElement.appendChild(txtArea);
+        }
+    </script>
+
+</body>
+</html>

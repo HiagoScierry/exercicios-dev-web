@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        table{
+            margin-top: 10px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td , th {
+            padding: 10px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div>
+        <input type="text" id="nome" placeholder="nome">
+        <input type="email" id="email" placeholder="email">
+        <input type="button" value="adicionar" onclick="add()">
+        <input type="button" value="ver lista" onclick="seeList()">
+    </div>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="bodyTable">
+                
+            </tbody>
+        </table>
+    </div>
+
+
+    <script lang="Javascript">
+
+        const lista = [];
+
+        function add(){
+
+            const nome = document.getElementById('nome').value
+            const email = document.getElementById('email').value
+
+            if(!nome || !email){
+                alert("Dados não preenchidos");
+                return;
+            }
+
+            lista.push({
+                nome,
+                email
+            });
+
+        }
+
+        function seeList(){
+            const bodyTable = document.getElementById('bodyTable');
+
+            bodyTable.innerHTML = ""
+
+
+            for (let i = 0; i < lista.length; i++) {
+            const element = lista[i];
+
+            const tr = document.createElement('tr');
+            const td1 = document.createElement('td');
+            td1.textContent = element.nome;
+
+            const td2 = document.createElement('td');
+            td2.textContent = element.email;
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+
+            bodyTable.appendChild(tr);
+        }
+
+        }
+
+    </script>
+
+</body>
+</html>
