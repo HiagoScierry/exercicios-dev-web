@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+        }
+
+        input{
+            margin-bottom: 5px;
+        }
+
+        button{
+            margin-bottom: 10px;
+        }
+
+        table , tr , th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div action="">
+        <input type="text" placeholder="nome" id="nome">
+        <input type="number" min="0" max="10" placeholder="nota 1" id="n1">
+        <input type="number" min="0" max="10" placeholder="nota 2" id="n2">
+        <input type="number" min="0" max="10" placeholder="nota 3" id="n3">
+        <button onclick="media()">media</button>
+    </div>
+
+    <table id="tabela">
+        <tr>
+            <th>Nome</th>
+            <th>Nota 1</th>
+            <th>Nota 2</th>
+            <th>Nota 3</th>
+            <th>Media</th>
+            <th>Resultado</th>
+        </tr>
+    </table>
+    
+
+    <script lang="Javascript">
+
+        function media(){
+            const nome = document.getElementById('nome').value;
+            const n1 = document.getElementById('n1').value;
+            const n2 = document.getElementById('n2').value;
+            const n3 = document.getElementById('n3').value;
+            
+            const mediaAritmetica = (parseFloat(n1) + parseFloat(n2) + parseFloat(n3))/3 ;
+
+            const values = [nome, n1, n2, n3, mediaAritmetica];
+            
+            const table = document.getElementById('tabela')
+            const tr = document.createElement('tr');
+
+            for (let i = 0; i < values.length; i++) {
+                const element = values[i];
+                const td = document.createElement('td');
+                td.textContent = element;
+                tr.appendChild(td)
+            }
+
+
+            const resultado = document.createElement('td');
+            
+            if(mediaAritmetica >= 7){
+                resultado.textContent = 'APROVADO';
+                resultado.style.color = 'green';
+            } else if(mediaAritmetica >= 5){
+                resultado.textContent = 'RECUPERAÇÃO';
+                resultado.style.color = 'yellow';
+            } else {
+                resultado.textContent = 'REPROVADO';
+                resultado.style.color = 'red';
+            }
+
+            tr.appendChild(resultado);
+            table.appendChild(tr);
+        }
+
+
+    </script>
+
+</body>
+</html>

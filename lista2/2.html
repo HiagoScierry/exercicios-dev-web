@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <p id="paragrafo">123 <span>teste</span>123 <span>Lorem <strong>negrito</strong></span>123</p>
+
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li id="item">333</li>
+        <li>444</li>
+        <li>555</li>
+        <li>666</li>
+        <li>777</li>
+        <li>888</li>
+    </ul>
+
+
+    <script lang="Javascript">
+
+        const paragrafo = document.getElementById('paragrafo');
+
+        document.write(`<p>${paragrafo.textContent}</p>`);
+
+        const spans = document.getElementsByTagName('span');
+
+        for (let i = 0; i < spans.length; i++) {
+            const element = spans[i];
+            document.write(`<p>${element.textContent}</p>`);
+            
+        }
+
+        const lista = document.getElementsByTagName('li');
+
+        for (let i = 0; i < lista.length; i++) {
+            const element = lista[i];
+            if(element.textContent == '666'){
+             document.write(`<p>${element.textContent}</p>`);
+            }
+        }
+
+        function exibirInnerHTML(element){
+            console.log(element.innerHTML);
+        }
+
+        const p = document.getElementsByTagName('p');
+
+        for (let i = 0; i < p.length; i++) {
+            const element = p[i];
+            exibirInnerHTML(element);
+        }
+
+        const strong = document.getElementsByTagName('strong');
+
+        for (let i = 0; i < strong.length; i++) {
+            const element = strong[i];
+            exibirInnerHTML(element);
+        }
+
+        const item = document.getElementById('item');
+
+        exibirInnerHTML(item);
+        
+
+
+
+    </script>
+
+</body>
+
+</html>
